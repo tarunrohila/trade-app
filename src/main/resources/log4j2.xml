@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration>
+    <Properties>
+        <Property name="logging.path">${sys:logging.path:-}</Property>
+    </Properties>
+    <!-- Appenders -->
+    <appenders>
+        <!-- Console -->
+        <Console name="Console" target="SYSTEM_OUT" ignoreExceptions="false">
+            <PatternLayout
+                    pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [${hostName}] [%level] [%c] [%X] - %msg%n"/>
+        </Console>
+        <!-- log files -->
+        <RollingFile name="AppLogFile" fileName="${logging.path}app.log"
+                     filePattern="${logging.path}co-app-%i.log" append="true" immediateFlush="true"
+                     ignoreExceptions="false">
+            <PatternLayout
+                    pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [${hostName}] [%level] [%c] [%X] - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </appenders>
+
+    <!--Loggers-->
+    <loggers>
+        <root level="debug">
+            <appender-ref ref="AppLogFile"/>
+            <appender-ref ref="Console"/>
+        </root>
+        <logger name="com.rohila" level="debug"
+                additivity="false">
+            <appender-ref ref="AppLogFile"/>
+        </logger>
+    </loggers>
+</configuration>
