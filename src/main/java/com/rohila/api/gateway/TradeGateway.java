@@ -4,7 +4,7 @@ import com.rohila.api.repository.domain.TradeDetails;
 import org.springframework.stereotype.Repository;
 
 /**
- * Interface which is used to handle gateway requests for Post Operations
+ * Interface which is used to handle gateway requests for Trade Operations
  *
  * @author Tarun Rohila
  */

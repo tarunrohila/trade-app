@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 /**
- * Interface which is used to provide handling for post related endpoints
+ * Interface which is used to provide handling for Trade related endpoints
  *
  * @author Tarun Rohila
  */
